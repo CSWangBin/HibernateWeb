@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Struts 2" type="struts2">
+    <CLASSES>
+      <root url="jar://C:/内网通接收处/xiao-kang/struts-2.3.31/lib/struts2-core-2.3.31.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
