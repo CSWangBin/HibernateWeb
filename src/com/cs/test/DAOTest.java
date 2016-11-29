@@ -19,16 +19,35 @@ public class DAOTest extends TestCase{
     }
 
     @Test
+    public void testAdd() {
+        Product product = new Product();
+        product.setTitle("aa");
+        product.setPrice(12);
+        product.setDes("cc");
+        dao.add(product);
+    }
+
+    @Test
     public void testQueryById() {
-        Product p = dao.queryById(1);
+        Product p = dao.queryById(8);
         if (p != null) {
             System.out.println(p);
         }
     }
 
     @Test
-    public void text() {
-        System.out.print("aaaaaaaaaaaaaaaaaa");
+    public void update() {
+        Product product = new Product();
+        product.setTitle("aa");
+        product.setPrice(22);
+        product.setDes("cc");
+        dao.update(product);
     }
+
+    @Test
+    public void deleteById () {
+        dao.deleteById(1);
+    }
+
 
 }
