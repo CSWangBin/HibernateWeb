@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 /**
  * Created by 举 on 2016/11/29.
  */
@@ -25,8 +27,13 @@ public class ProductDAOImpl implements ProductDAO {
 
 
     @Override
-    public Product query(Product product) {
-        return null;
+    public List<Product> query() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<Product> list=session.createQuery("from Product").list();
+        session.getTransaction().commit();
+        session.close();
+        return list;
     }
 
     @Override
@@ -45,9 +52,10 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public void update(Product product) {
         Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        session.update(product);
-        tx.commit();
+        Transaction tran = session.beginTransaction();//开始事物
+        session.update(product); //修改对象
+        tran.commit();//提交
+        session.close();
     }
 
     @Override
@@ -60,6 +68,7 @@ public class ProductDAOImpl implements ProductDAO {
         Session session = sessionFactory.openSession();
         Transaction tran = session.beginTransaction();//开始事物
         Product p = (Product)session.get(Product.class, id); //获取id
+        System.out.print(p);
         session.delete(p);
         tran.commit();//提交
         session.close();
