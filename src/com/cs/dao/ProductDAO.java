@@ -9,14 +9,35 @@ import java.util.List;
  * Created by 举 on 2016/11/29.
  */
 public interface ProductDAO {
+    /**
+     * 添加商品
+     * @param product
+     * @return
+     */
     public Product add(Product product);
-    public List<Product> query();
-    //分页查询
-    public List<Product> queryForPage(String hql,int offset,int length);
-    //总记录条数
-    public int getCount(String hql);
-    public Product queryById(int id);
+
+    /**
+     * 分页查询商品
+     * @param pager
+     * @return
+     */
+    public Pager4EasyUI<Product> queryAll(Pager4EasyUI<Product> pager);
+
+    /**
+     * 查询商品总数
+     * @return
+     */
+    public int count();
+
+    /**
+     * 修改商品
+     * @param product
+     */
     public void update(Product product);
-    public void delete(Product product);
+
+    /**
+     * 删除商品
+     * @param id
+     */
     public void deleteById(int id);
 }

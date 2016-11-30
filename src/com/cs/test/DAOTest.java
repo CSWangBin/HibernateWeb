@@ -1,6 +1,7 @@
 package com.cs.test;
 
 import com.cs.bean.Product;
+import com.cs.commom.bean.Pager4EasyUI;
 import com.cs.dao.ProductDAO;
 import com.cs.dao.ProductDAOImpl;
 import junit.framework.TestCase;
@@ -60,9 +61,25 @@ public class DAOTest extends TestCase{
         dao.deleteById(11);
     }
 
+
+    @Test
+    public void testPage() {
+        Pager4EasyUI<Product> pager = new Pager4EasyUI<Product>();
+        pager.setPageNo(3);
+        pager.setPageSize(3);
+        pager = dao.queryAll(pager);
+        pager.setTotal(dao.count());
+        if (pager.getRows() != null) {
+            for (Product p : pager.getRows()) {
+                System.out.print(p);
+            }
+        }
+    }
+
     @Test
     public void testCount() {
-
+        int a = dao.count();
+        System.out.print(a);
     }
 
 }

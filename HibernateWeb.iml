@@ -16,6 +16,7 @@
             <file>file://$MODULE_DIR$/src/struts.xml</file>
             <file>jar://C:/内网通接收处/xiao-kang/struts-2.3.31/lib/struts2-core-2.3.31.jar!/struts-default.xml</file>
             <file>file://$MODULE_DIR$/src/com/cs/bean/Product.hbm.xml</file>
+            <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-json-plugin-2.3.31.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -54,5 +55,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="antlr-2.7.6" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="struts2-json-plugin-2.3.31" level="project" />
   </component>
 </module>

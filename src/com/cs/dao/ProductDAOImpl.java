@@ -6,6 +6,8 @@ import com.cs.util.HibernateUtil;
 import org.hibernate.*;
 import org.hibernate.criterion.Projections;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +16,12 @@ import java.util.List;
 public class ProductDAOImpl implements ProductDAO {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+    /**
+     * 添加商品
+     * @param product
+     * @return
+     */
     @Override
     public Product add(Product product) {
         Session session = sessionFactory.openSession();
@@ -24,42 +32,40 @@ public class ProductDAOImpl implements ProductDAO {
         return product;
     }
 
-
+    /**
+     * 分页查询商品
+     * @param pager
+     * @return
+     */
     @Override
-    public List<Product> query() {
+    public Pager4EasyUI<Product> queryAll(Pager4EasyUI<Product> pager){
         Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        List<Product> list=session.createQuery("from Product").list();
-        session.getTransaction().commit();
+        Query query = session.createQuery("from Product ");
+        query.setFirstResult(pager.getBeginIndex());
+        query.setMaxResults(pager.getPageSize());
+        List<Product> products = query.list();
+        pager.setRows(products);
         session.close();
-        return list;
+        return pager;
     }
 
-    @Override
-    public List<Product> queryForPage(String hql, int offset, int length) {
-        Session session = sessionFactory.getCurrentSession();
-        Query q = session.createQuery(hql);
-        q.setFirstResult(offset);
-        q.setMaxResults(length);
-        return q.list();
-    }
-
-    @Override
-    public int getCount(String hql) {
-        Session session = sessionFactory.getCurrentSession();
-        Query q = session.createQuery(hql);
-        return Integer.parseInt(q.list().get(0).toString());
-    }
-
-
-    @Override
-    public Product queryById(int id) {
+    /**
+     * 查询商品总数
+     * @return
+     */
+    public int count() {
         Session session = sessionFactory.openSession();
-        Product p = (Product)session.get(Product.class, id);
+        Query query = session.createSQLQuery("select count(*) from t_product1");
+        BigInteger count = (BigInteger) query.uniqueResult();
         session.close();
-        return p;
+        return count.intValue();
     }
 
+
+    /**
+     * 修改商品
+     * @param product
+     */
     @Override
     public void update(Product product) {
         Session session = sessionFactory.openSession();
@@ -69,11 +75,10 @@ public class ProductDAOImpl implements ProductDAO {
         session.close();
     }
 
-    @Override
-    public void delete(Product product) {
-
-    }
-
+    /**
+     * 删除商品
+     * @param id
+     */
     @Override
     public void deleteById(int id) {
         Session session = sessionFactory.openSession();

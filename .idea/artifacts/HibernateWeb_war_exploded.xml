@@ -13,6 +13,7 @@
           <element id="library" level="project" name="mysql-connector-java-5.1.40-bin" />
           <element id="library" level="module" name="JUnit4" module-name="HibernateWeb" />
           <element id="library" level="project" name="antlr-2.7.6" />
+          <element id="library" level="project" name="struts2-json-plugin-2.3.31" />
         </element>
       </element>
     </root>
