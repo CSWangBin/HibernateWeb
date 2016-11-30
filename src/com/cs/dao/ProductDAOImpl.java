@@ -3,9 +3,8 @@ package com.cs.dao;
 import com.cs.bean.Product;
 import com.cs.commom.bean.Pager4EasyUI;
 import com.cs.util.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.criterion.Projections;
 
 import java.util.List;
 
@@ -37,9 +36,21 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public Pager4EasyUI<Product> queryAll(Pager4EasyUI<Product> pager) {
-        return null;
+    public List<Product> queryForPage(String hql, int offset, int length) {
+        Session session = sessionFactory.getCurrentSession();
+        Query q = session.createQuery(hql);
+        q.setFirstResult(offset);
+        q.setMaxResults(length);
+        return q.list();
     }
+
+    @Override
+    public int getCount(String hql) {
+        Session session = sessionFactory.getCurrentSession();
+        Query q = session.createQuery(hql);
+        return Integer.parseInt(q.list().get(0).toString());
+    }
+
 
     @Override
     public Product queryById(int id) {

@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  你是傻逼吗 WORINIMA AAAAA
+  你是傻逼吗
   </body>
 </html>

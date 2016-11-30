@@ -60,5 +60,9 @@ public class DAOTest extends TestCase{
         dao.deleteById(11);
     }
 
+    @Test
+    public void testCount() {
+
+    }
 
 }

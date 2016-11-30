@@ -5,4 +5,9 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <package name="product-struts" extends="struts-default" namespace="/product">
+        <action name="*" class="com.cs.action.ProductAction" method="{1}">
+            <result name="all">/home.jsp</result>
+        </action>
+    </package>
 </struts>

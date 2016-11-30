@@ -11,7 +11,10 @@ import java.util.List;
 public interface ProductDAO {
     public Product add(Product product);
     public List<Product> query();
-    public Pager4EasyUI<Product> queryAll(Pager4EasyUI<Product> pager);
+    //分页查询
+    public List<Product> queryForPage(String hql,int offset,int length);
+    //总记录条数
+    public int getCount(String hql);
     public Product queryById(int id);
     public void update(Product product);
     public void delete(Product product);
