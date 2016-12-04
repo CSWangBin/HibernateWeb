@@ -22,7 +22,7 @@
 		<div data-options="region:'north'" style="height:60px">
 			<img src="images/3.jpg" class="logo" />
 			<div id="wel">
-				欢迎您：XXXX，安全退出
+				欢迎您：啦啦啦啦，安全退出
 			</div>
 		</div>
 		<div data-options="region:'west',split:true" title="菜单" style="width:240px;">
