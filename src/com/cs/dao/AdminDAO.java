@@ -1,27 +1,25 @@
 package com.cs.dao;
 
-import com.cs.bean.Product;
+import com.cs.bean.Admin;
 import com.cs.commom.bean.Pager4EasyUI;
-
-import java.util.List;
 
 /**
  * Created by 举 on 2016/11/29.
  */
-public interface ProductDAO {
+public interface AdminDAO {
     /**
-     * 添加商品
-     * @param product
+     * 添加关了一天
+     * @param admin
      * @return
      */
-    public Product add(Product product);
+    public AdminDAO add(Admin admin);
 
     /**
-     * 分页查询商品
+     * 分页查询管理员
      * @param pager
      * @return
      */
-    public Pager4EasyUI<Product> queryAll(Pager4EasyUI<Product> pager);
+    public Pager4EasyUI<Admin> queryAll(Pager4EasyUI<Admin> pager);
 
     /**
      * 查询商品总数
@@ -30,13 +28,13 @@ public interface ProductDAO {
     public int count();
 
     /**
-     * 修改商品
+     * 修改管理员
      * @param product
      */
-    public void update(Product product);
+    public void update(Admin product);
 
     /**
-     * 删除商品
+     * 删除管理员
      * @param id
      */
     public void deleteById(int id);

@@ -1,7 +1,5 @@
 package com.cs.commom.bean;
 
-import com.cs.bean.Product;
-
 import java.util.List;
 
 /**

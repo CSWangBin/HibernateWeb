@@ -1,6 +1,5 @@
 package com.cs.sevice;
 
-import com.cs.bean.Product;
 import com.cs.commom.bean.Pager4EasyUI;
 
 /**

@@ -1,19 +1,16 @@
 package com.cs.dao;
 
-import com.cs.bean.Product;
 import com.cs.commom.bean.Pager4EasyUI;
 import com.cs.util.HibernateUtil;
 import org.hibernate.*;
-import org.hibernate.criterion.Projections;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by 举 on 2016/11/29.
  */
-public class ProductDAOImpl implements ProductDAO {
+public class AdminDAOImpl implements AdminDAO {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 

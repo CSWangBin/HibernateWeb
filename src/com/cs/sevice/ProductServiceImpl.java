@@ -1,19 +1,18 @@
 package com.cs.sevice;
 
-import com.cs.bean.Product;
 import com.cs.commom.bean.Pager4EasyUI;
-import com.cs.dao.ProductDAO;
-import com.cs.dao.ProductDAOImpl;
+import com.cs.dao.AdminDAO;
+import com.cs.dao.AdminDAOImpl;
 
 /**
  * Created by 举 on 2016/11/28.
  */
 public class ProductServiceImpl implements ProductService {
 
-    private ProductDAO productDAO;
+    private AdminDAO productDAO;
 
     public ProductServiceImpl() {
-        productDAO = new ProductDAOImpl();
+        productDAO = new AdminDAOImpl();
     }
 
     /**
